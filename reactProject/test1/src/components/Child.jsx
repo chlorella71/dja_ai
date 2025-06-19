@@ -34,6 +34,7 @@ const Child = ({getData}) => {
 
       <div>...Child</div>
       <br />
+      <br />
     </>
   )
 }
