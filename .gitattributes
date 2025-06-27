@@ -1,0 +1,2 @@
+pythonProject/pandas_practice1/data/ratings.dat filter=lfs diff=lfs merge=lfs -text
+pythonProject/pandas_practice1/data/ratings.pkl filter=lfs diff=lfs merge=lfs -text
