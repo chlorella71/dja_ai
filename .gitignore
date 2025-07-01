@@ -1,2 +1,5 @@
 *.dat
 *.pkl
+.idea/
+__pycache__/
+.venv*/
