@@ -5,3 +5,8 @@ __pycache__/
 .venv*/
 *.iml
 *.pyc
+pythonProject/generate_ai/save_model/
+pythonProject/generate_ai/results/
+*.safetensors
+*.bin
+*.pt
