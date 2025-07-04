@@ -1,12 +1,95 @@
-*.dat
-*.pkl
-.idea/
-__pycache__/
-.venv*/
-*.iml
+# =========================
+# ▶ Python 관련
+# =========================
 *.pyc
-pythonProject/generate_ai/save_model/
-pythonProject/generate_ai/results/
+*.pyo
+*.pyd
+__pycache__/
+*.pkl
+*.dat
 *.safetensors
 *.bin
 *.pt
+*.iml
+.venv*/
+pythonProject/generate_ai/save_model/
+pythonProject/generate_ai/results/
+.mypy_cache/
+.pytest_cache/
+
+# =========================
+# ▶ IDE / 에디터
+# =========================
+.idea/
+.vscode/
+*.iws
+*.ipr
+*.iml
+*.class
+.factorypath
+.project
+.settings
+.sts4-cache
+
+# =========================
+# ▶ OS 별 불필요한 파일
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# ▶ Node / JS (React 등)
+# =========================
+node_modules/
+*.log
+*.tmp
+*.swp
+
+# =========================
+# ▶ 환경 변수 파일
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# ▶ Docker 관련
+# =========================
+docker-compose.override.yml
+*.log
+
+# =========================
+# ▶ 빌드 / 배포
+# =========================
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+# =========================
+# ▶ NetBeans
+# =========================
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# =========================
+# ▶ Jupyter Notebook
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# ▶ 기타
+# =========================
+HELP.md
