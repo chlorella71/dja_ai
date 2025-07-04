@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/products")   // api지정
-@CrossOrigin(origins = "http://localhost:5173")
+//@CrossOrigin(origins = "http://localhost:5173")
 public class ProductController {
 
     private final ProductService productService;
@@ -27,10 +27,27 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).body(savedList);
     }
 
+//    @GetMapping
+//    public ResponseEntity<List<Product>> getProducts() {
+//        return ResponseEntity.ok(productService.getProducts());
+//    }
+
     @GetMapping
     public ResponseEntity<List<Product>> getProducts() {
-        return ResponseEntity.ok(productService.getProducts());
+        try {
+            List<Product> list = productService.getProducts();
+            System.out.println("조회된 상품 수: " + list.size());
+            for (Product p : list) {
+                System.out.println("상품: " + p.getName() + " | 가격: " + p.getPrice());
+            }
+            return ResponseEntity.ok(list);
+        } catch (Exception e) {
+            System.err.println("🔥 예외 발생:");
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
+
 
 
     @PostMapping

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -86,13 +87,23 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'mydb',  # PostgreSQL 데이터베이스 이름
+#        'USER': 'kogo',  # PostgreSQL 사용자 이름
+#        'PASSWORD': '111',  # PostgreSQL 사용자 비밀번호
+#        'HOST': 'localhost',  # PostgreSQL 서버 주소 (예: 로컬호스트)
+#        'PORT': '5432',  # PostgreSQL 기본 포트
+#    }
+# }
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'mydb',  # PostgreSQL 데이터베이스 이름
-       'USER': 'kogo',  # PostgreSQL 사용자 이름
-       'PASSWORD': '111',  # PostgreSQL 사용자 비밀번호
-       'HOST': 'localhost',  # PostgreSQL 서버 주소 (예: 로컬호스트)
+       'NAME': os.environ.get('POSTGRES_DB'),  # PostgreSQL 데이터베이스 이름
+       'USER': os.environ.get('POSTGRES_USER'),  # PostgreSQL 사용자 이름
+       'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),  # PostgreSQL 사용자 비밀번호
+       'HOST': 'db',  # PostgreSQL 서버 주소 (예: 로컬호스트)
        'PORT': '5432',  # PostgreSQL 기본 포트
    }
 }

@@ -6,7 +6,13 @@ import { fetchProductPost } from '../redux/reducer'
 
 const Product = ({getProps}) => {
 
-  const [state, setState] = useState(null)
+  // const [state, setState] = useState(null)
+  const [state, setState] = useState({
+    name: '',
+    price: 0,
+    category: '',
+    inStock: false,
+})
 
   const navigate = useNavigate();
 

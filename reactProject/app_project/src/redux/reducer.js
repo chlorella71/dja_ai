@@ -1,4 +1,5 @@
 import axios from 'axios';
+import api from '../api/axiosInstance'
 
 // export const FETCH_DATA_REQUEST = 'FETCH_DATA_REQUEST';
 // export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
@@ -8,7 +9,10 @@ export const fetchData = (target) => async (dispatch) => {
     dispatch({ type: "LOADING" });
 
     try {
-        const response = await axios.get(`http://localhost:8000/${target}/`);
+        // const response = await axios.get(`http://localhost:8000/${target}/`);
+        // const response = await axios.get(`http://localhost:8080/${target}`);
+        // const response = await api.get(`/${target}`);
+        const response = await api.get(`/${target}/`);
         dispatch({ type: "SUCCESS", payload: response.data });
     } catch (error) {
         dispatch({ type: "FAILURE", error });
@@ -18,8 +22,12 @@ export const fetchData = (target) => async (dispatch) => {
 
 export const fetchUserPost = (obj) => async (dispatch) => {
     try {
-        const url = "http://localhost:8000/users/"
-        const response = await axios.post(url, obj)
+        // const url = "http://localhost:8000/users/"
+        // const url = "http://localhost:8080/users"
+        // const url = "/users"
+        const url = "/users/"
+        const response = await api.post(url, obj)
+        // const response = await axios.post(url, obj)
         dispatch({type: "SUCCESS", data: response.data})
     } catch (error) {
         dispatch({type:"FAILURE", error})
@@ -27,8 +35,12 @@ export const fetchUserPost = (obj) => async (dispatch) => {
 
 export const fetchProductPost = (obj) => async (dispatch) => {
     try {
-        const url = "http://localhost:8000/products/"
-        const response = await axios.post(url, obj)
+        // const url = "http://localhost:8000/products/"
+        // const url = "http://localhost:8080/products"
+        // const url = "/products"
+        const url = "/products/"
+        const response = await api.post(url, obj)
+        // const response = await axios.post(url, obj)
         dispatch({type: "SUCCESS", data: response.data})
     } catch (error) {
         dispatch({type:"FAILURE", error})

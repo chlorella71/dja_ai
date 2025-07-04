@@ -32,9 +32,23 @@ public class Product {
     private String category;
 
     @Column(name="inStock")
-    private boolean inStock;
+    private Boolean inStock = false;
 
     @PositiveOrZero(message="가격은 0이상이어야 합니다.")
     @Column(name="price")
     private Long price;
+
+    @PrePersist
+    public void prePersist() {
+        if (inStock == null) {
+            inStock = false;
+        }
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        if (inStock == null) {
+            inStock = false;
+        }
+    }
 }
