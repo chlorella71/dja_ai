@@ -1,0 +1,181 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Alice",
+      "age": 30,
+      "email": "alice@example.com",
+      "city": "New York"
+    },
+    {
+      "id": "2",
+      "name": "Bob",
+      "age": 25,
+      "email": "bob@example.com",
+      "city": "Los Angeles"
+    },
+    {
+      "id": "3",
+      "name": "Charlie",
+      "age": 35,
+      "email": "charlie@example.com",
+      "city": "Chicago"
+    },
+    {
+      "id": "4",
+      "name": "David",
+      "age": 28,
+      "email": "david@example.com",
+      "city": "Houston"
+    },
+    {
+      "id": "5",
+      "name": "Eve",
+      "age": 22,
+      "email": "eve@example.com",
+      "city": "Phoenix"
+    },
+    {
+      "id": "6",
+      "name": "Jona",
+      "age": 40,
+      "email": "jona@example.com",
+      "city": "Philadelphia"
+    },
+    {
+      "id": "7",
+      "name": "Kim",
+      "age": 31,
+      "email": "kim@example.com",
+      "city": "San Antonio"
+    },
+    {
+      "id": "3a11",
+      "name": "Jeong",
+      "age": "30",
+      "email": "J@email.com",
+      "city": "Seoul"
+    },
+    {
+      "id": "09a8",
+      "name": "John",
+      "age": "28",
+      "email": "2@email.com",
+      "city": "Africa"
+    },
+    {
+      "id": "b534",
+      "name": "Hi",
+      "age": "22",
+      "email": "hi@email.com",
+      "city": "Alaska"
+    },
+    {
+      "id": "75e0",
+      "name": "User",
+      "age": "11",
+      "email": "user@email.com",
+      "city": "Korea"
+    }
+  ],
+  "products": [
+    {
+      "id": "A1",
+      "name": "Laptop",
+      "price": 1200,
+      "category": "Electronics",
+      "inStock": true
+    },
+    {
+      "id": "B2",
+      "name": "Mouse",
+      "price": 25,
+      "category": "Electronics",
+      "inStock": true
+    },
+    {
+      "id": "C3",
+      "name": "Keyboard",
+      "price": 75,
+      "category": "Electronics",
+      "inStock": false
+    },
+    {
+      "id": "D4",
+      "name": "Monitor",
+      "price": 300,
+      "category": "Electronics",
+      "inStock": true
+    },
+    {
+      "id": "E5",
+      "name": "Tablet",
+      "price": 450,
+      "category": "Electronics",
+      "inStock": true
+    },
+    {
+      "id": "F6",
+      "name": "Smartphone",
+      "price": 900,
+      "category": "Electronics",
+      "inStock": true
+    },
+    {
+      "id": "G7",
+      "name": "Headphones",
+      "price": 150,
+      "category": "Electronics",
+      "inStock": false
+    },
+    {
+      "id": "H8",
+      "name": "T-Shirt",
+      "price": 20,
+      "category": "Apparel",
+      "inStock": true
+    },
+    {
+      "id": "I9",
+      "name": "Jeans",
+      "price": 60,
+      "category": "Apparel",
+      "inStock": true
+    },
+    {
+      "id": "J10",
+      "name": "Book",
+      "price": 15,
+      "category": "Books",
+      "inStock": true
+    },
+    {
+      "id": "b4bb",
+      "name": "Cookie",
+      "price": "300",
+      "category": "Dessert",
+      "inStock": "false"
+    },
+    {
+      "id": "ea5f",
+      "name": "Money",
+      "price": "3000",
+      "category": "Bank",
+      "inStock": "false"
+    },
+    {
+      "id": "02bf",
+      "name": "사과",
+      "price": 2000,
+      "category": "과일",
+      "inStock": true
+    },
+    {
+      "id": "8d84",
+      "name": "apple",
+      "price": 2999,
+      "category": "fruit",
+      "inStock": false
+    }
+  ]
+}
