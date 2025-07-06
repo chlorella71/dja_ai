@@ -37,6 +37,12 @@ if __name__ == '__main__':
     df = pd.DataFrame(iris.data, columns =iris.feature_names)
     print(df)
 
+    iris=load_iris()
+    df = pd.DataFrame(iris.data, columns=iris.feature_names)
+
+    df.drop(1, axis=0, inplace=True)
+    print(df.iloc[1])
+
 
 
 
