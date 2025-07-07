@@ -12,16 +12,38 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+ENV = os.environ.get("DJANGO_ENV", "development")
+
+if ENV == "production":
+    dotenv_path = BASE_DIR / ".env.production"
+else:
+    dotenv_path = BASE_DIR / ".env.development"
+
+load_dotenv(dotenv_path=dotenv_path)
+
+# 문자열 리스트로 변환
+def parse_env_list(varname):
+    value=os.getenv(varname)
+    if value:
+        return [v.strip() for v in value.split(',')]
+    return []
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-d(arnxp*c+3zhdig8eioo@0z%5r=i-583tq2r_s!se)t75*pep'
+# SECRET_KEY = 'django-insecure-d(arnxp*c+3zhdig8eioo@0z%5r=i-583tq2r_s!se)t75*pep'
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+
+if not SECRET_KEY:
+    raise ValueError("❌ 환경변수 DJANGO_SECRET_KEY가 설정되지 않았습니다!")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -55,7 +77,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = parse_env_list("CORS_ALLOWED_ORIGINS")
+CSRF_TRUSTED_ORIGINS = parse_env_list("CSRF_TRUSTED_ORIGINS")
 
 ROOT_URLCONF = 'config.urls'
 
@@ -103,10 +127,20 @@ DATABASES = {
        'NAME': os.environ.get('POSTGRES_DB'),  # PostgreSQL 데이터베이스 이름
        'USER': os.environ.get('POSTGRES_USER'),  # PostgreSQL 사용자 이름
        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),  # PostgreSQL 사용자 비밀번호
-       'HOST': 'db',  # PostgreSQL 서버 주소 (예: 로컬호스트)
-       'PORT': '5432',  # PostgreSQL 기본 포트
+       'HOST': os.environ.get('POSTGRES_HOST'),  # PostgreSQL 서버 주소 (예: 로컬호스트)
+       'PORT': os.environ.get('POSTGRES_PORT'),  # PostgreSQL 기본 포트
    }
 }
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': os.environ.get('POSTGRES_DB'),  # PostgreSQL 데이터베이스 이름
+#        'USER': os.environ.get('POSTGRES_USER'),  # PostgreSQL 사용자 이름
+#        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),  # PostgreSQL 사용자 비밀번호
+#        'HOST': 'db',  # PostgreSQL 서버 주소 (예: 로컬호스트)
+#        'PORT': '5432',  # PostgreSQL 기본 포트
+#    }
+# }
 
 
 
@@ -147,6 +181,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+if ENV == "production":
+    STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

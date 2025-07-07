@@ -14,8 +14,8 @@ from db_conn.postgres_db import conn_postgres_db # from은 모듈을 가지고 �
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 from tqdm import tqdm
 
-from lightfm import LightFM
-from lightfm.data import Dataset
+# from lightfm import LightFM
+# from lightfm.data import Dataset
 warnings.filterwarnings('ignore')
 
 # df = pd.read_csv("data/ratings.dat", sep="::", engine='python')
@@ -44,6 +44,7 @@ def extract_high_rating_data(minimum_rating=3.0):
 
     # print(renamedData.keys())
     # exit()
+    data = data.rename(columns={"userId":"user_id", "movieId":"movie_id"})
     return data
     # return renamedData
 
