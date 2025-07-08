@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7.2
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data:/data                    # RDB, AOF 저장 위치
+      - ./redis.conf:/usr/local/etc/redis/redis.conf  # 사용자 설정 파일 적용
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
