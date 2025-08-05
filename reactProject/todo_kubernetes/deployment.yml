@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-app-deployment
+  labels:
+    app: react-app
+spec:
+  replicas: 2 # 하부서버 개수(servant?)
+  selector:
+    matchLabels:
+      app: react-app
+  template:
+    metadata:
+      labels:
+        app: react-app
+    spec:
+      containers:
+      - name: react-app
+        image: chlorella72/react-app:v1.0 #dockerhub id
+        ports:
+        - containerPort: 80
